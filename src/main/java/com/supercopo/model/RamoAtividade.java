@@ -11,20 +11,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "ramo_atividade")
-public class Ramoatividade implements Serializable {
+public class RamoAtividade implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(nullable = false , length = 50)
-	private  String descricao;
-	
-	public Ramoatividade () {
-		
-	}
+	@Column(nullable = false, length = 80)
+	private String descricao;
 
 	public Long getId() {
 		return id;
@@ -58,7 +54,7 @@ public class Ramoatividade implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Ramoatividade other = (Ramoatividade) obj;
+		RamoAtividade other = (RamoAtividade) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -66,6 +62,9 @@ public class Ramoatividade implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "RamoAtividade [id=" + id + "]";
+	}
 }
